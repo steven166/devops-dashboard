@@ -1,0 +1,12 @@
+FROM node:9.5.0-alpine
+WORKDIR /app/microdocs-core/dist
+ADD microdocs-core/dist/package.json ./
+RUN yarn link
+
+WORKDIR /app/microdocs-server
+ADD microdocs-server/package.json microdocs-server/yarn.lock ./
+RUN yarn --frozen-lockfile && yarn link @maxxton/microdocs-core
+
+ADD microdocs-server/tslint.json microdocs-server/tsconfig.json microdocs-server/tsconfig.build.json microdocs-server/README.md ./
+
+CMD yarn run watch

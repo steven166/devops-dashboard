@@ -1,0 +1,46 @@
+{
+  "name": "devops-dashboard-server",
+  "version": "1.0.0",
+  "description": "DevOps Dashboard Server",
+  "main": "dist/index.js",
+  "repository": "https://github.com/steven166/devops-dashboard",
+  "author": "S. Hermans <s.hermans@maxxton.com",
+  "license": "MIT",
+  "scripts": {
+    "debug": "./node_modules/.bin/nodemon --debug-brk=9000 --expose_debug_as=v8debug ./dist/index.js",
+    "build": "rm -rf dist/* && (mkdir dist || true) && cp package.json README.md dist && ./node_modules/.bin/tsc -p tsconfig.build.json",
+    "setup": "yarn --freeze-lockfile && yarn link @maxxton/microdocs-core",
+    "link": "yarn link @maxxton/microdocs-core",
+    "lint": "./node_modules/.bin/tslint -e **/node_modules/** --project tsconfig.json",
+    "watch": "rm -rf dist/* && (mkdir dist || true) && cp package.json README.md dist && ./node_modules/.bin/tsc -p tsconfig.json -w",
+    "watchWin": "rm -rf dist/* && (mkdir dist || true) && cp package.json README.md dist && .\\node_modules\\.bin\\tsc -p tsconfig.json -w",
+    "clean": "rm -rf dist/*",
+    "test": "rm -rf dist/* && (mkdir dist || true) && cp package.json README.md dist && ./node_modules/.bin/tsc -p tsconfig.json && ./node_modules/.bin/nyc --reporter=lcovonly mocha \"./dist/**/*.spec.js\""
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.8",
+    "@types/chai": "^4.0.10",
+    "@types/express": "^4.0.39",
+    "@types/js-yaml": "^3.10.1",
+    "@types/jsonschema": "^1.1.1",
+    "@types/mkdirp": "^0.5.2",
+    "@types/mocha": "^2.2.44",
+    "@types/uuid": "^3.4.3",
+    "@types/winston": "^2.3.7",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.15.0",
+    "nyc": "^11.3.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "js-yaml": "^3.10.0",
+    "jsonschema": "^1.2.2",
+    "rxjs": "^5.5.5",
+    "winston": "^2.4.0"
+  }
+}
