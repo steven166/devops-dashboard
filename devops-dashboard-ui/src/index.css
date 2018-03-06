@@ -1,0 +1,13 @@
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #e3e3e3;
+}
+
+.selected {
+  background-color: #262937;
+}
+
+.default {
+  background-color: #2c303f;
+}

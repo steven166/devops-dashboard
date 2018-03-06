@@ -7,11 +7,11 @@ export interface PullRequest {
   projectId: string;
   repoId: string;
   name: string;
-  description: string;
-  version: number;
-  open: boolean;
-  createdDate: number;
-  updatedDate: number;
+  description?: string;
+  version?: number;
+  open?: boolean;
+  createdDate?: number;
+  updatedDate?: number;
   from: {
     branch: string;
     commit: string;
@@ -20,15 +20,15 @@ export interface PullRequest {
     branch: string;
     commit: string;
   };
-  author: {
+  author?: {
     name: string;
     email: string;
     _id: string;
   };
-  approves: number;
-  tasks: number;
-  mergable: boolean;
-  comments: number;
+  approves?: number;
+  tasks?: number;
+  mergable?: boolean;
+  comments?: number;
   build?: BuildModel;
 
 }

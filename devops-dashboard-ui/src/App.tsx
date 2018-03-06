@@ -3,7 +3,7 @@ import { getMuiTheme } from "material-ui/styles";
 import { blue400, blue500, blue700, orange200 } from "material-ui/styles/colors";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import * as React from "react";
-import { Redirect, Route, Router } from "react-router";
+import {Redirect, Route, Router, Switch} from "react-router";
 import { HashRouter } from "react-router-dom";
 import "./App.css";
 import { projectList } from "./collections/projects/projects.collection";
@@ -35,10 +35,10 @@ class App extends React.Component {
         <HashRouter>
           <MuiThemeProvider muiTheme={muiTheme}>
             <Router history={history}>
-              <div>
-                <Route path="/:projectId" exact={true} component={DashboardPage}/>
+              <Switch>
+                <Route path="/:projectId" component={DashboardPage}/>
                 {/*<Redirect to="/"/>*/}
-              </div>
+              </Switch>
             </Router>
           </MuiThemeProvider>
         </HashRouter>

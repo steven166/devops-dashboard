@@ -1,9 +1,9 @@
 
 export interface BuildModel {
   status: BuildStatus;
-  startTime: string;
-  expectedDuration: number;
-  duration: number;
+  startTime?: string;
+  expectedDuration?: number;
+  duration?: number;
 }
 
 export enum BuildStatus {
